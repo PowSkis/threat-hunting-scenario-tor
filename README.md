@@ -25,7 +25,7 @@ Management suspects that some employees may be using TOR browsers to bypass netw
 
 ### 1. Searched the `DeviceFileEvents` Table
 
-1.	Searched for any string that had the word ‘tor’ in it and found that user ‘geofflab’ downlaoded tor installer, did something that resulted in mqany tor related files being copied to the desktop and and the creation of a file called ‘torshoppinglist.txt’ on the desktop at 2025-07-24T14:27:13.886111Z. This took place at: 2025-07-24T13:57:34.3898807Z
+Searched for any string that had the word ‘tor’ in it and found that user ‘geofflab’ downlaoded tor installer, did something that resulted in mqany tor related files being copied to the desktop and and the creation of a file called ‘torshoppinglist.txt’ on the desktop at 2025-07-24T14:27:13.886111Z. This took place at: 2025-07-24T13:57:34.3898807Z
 
 **Query used to locate events:**
 
@@ -46,7 +46,9 @@ Management suspects that some employees may be using TOR browsers to bypass netw
 
 ### 2. Searched the `DeviceProcessEvents` Table
 
-Searched for any `ProcessCommandLine` that contained the string "tor-browser-windows-x86_64-portable-14.0.1.exe". Based on the logs returned, at `2024-11-08T22:16:47.4484567Z`, an employee on the "threat-hunt-lab" device ran the file `tor-browser-windows-x86_64-portable-14.0.1.exe` from their Downloads folder, using a command that triggered a silent installation.
+Searched the Device Process Events Table for any process command line that contained the string “
+tor-browser-windows-x86_64-portable-14.5.5.exe”. Based on the logs returned at (2025-07-24T14:09:54.0800003Z) and employee on threat2 device ran the file - tor-browser-windows-x86_64-portable-14.5.5.exe from their downloads folder , using a command that triggered a silent installation. 
+
 
 **Query used to locate event:**
 
@@ -57,7 +59,8 @@ DeviceProcessEvents
 | where ProcessCommandLine contains "tor-browser-windows-x86_64-portable-14.5.5.exe"
 | project Timestamp, DeviceName, AccountName, ActionType, FileName, FolderPath, SHA256, ProcessCommandLine
 ```
-<img width="1212" alt="image" src="https://github.com/user-attachments/assets/b07ac4b4-9cb3-4834-8fac-9f5f29709d78">
+<img width="1320" height="64" alt="torsteptwo" src="https://github.com/user-attachments/assets/f731247e-267b-44f8-bf4f-7bd29fa366dd" />
+
 
 ---
 
