@@ -30,15 +30,16 @@ Management suspects that some employees may be using TOR browsers to bypass netw
 **Query used to locate events:**
 
 ```kql
-DeviceFileEvents  
-| where DeviceName == "threat-hunt-lab"  
-| where InitiatingProcessAccountName == "employee"  
-| where FileName contains "tor"  
-| where Timestamp >= datetime(2024-11-08T22:14:48.6065231Z)  
-| order by Timestamp desc  
+ DeviceFileEvents
+| where DeviceName == "threat2"
+| where InitiatingProcessAccountName == "geofflab"
+| where FileName contains "tor"
+| where Timestamp >= datetime(2025-07-24T13:57:34.3898807Z)
+| order by Timestamp desc 
 | project Timestamp, DeviceName, ActionType, FileName, FolderPath, SHA256, Account = InitiatingProcessAccountName
 ```
-<img width="1112" height="709" alt="torstepone" src="https://github.com/user-attachments/assets/9d69057c-29b2-490a-8b41-c2126b81ed2a" />
+<img width="1055" height="361" alt="torstep1a" src="https://github.com/user-attachments/assets/76f7635b-3445-4f9f-9740-798ac770dee3" />
+
 
 
 ---
